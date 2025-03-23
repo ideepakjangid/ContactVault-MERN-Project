@@ -6,7 +6,7 @@ const UserRouter = require('./routes/user.route.js')
 const cors = require('cors')
 const path = require("path");
 const app = express();
-app.use(cors({origin:ACCESS_URL}))
+app.use(cors({origin:process.env.ACCESS_URL}))
 app.use(express.json());
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "dist")));
