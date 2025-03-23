@@ -4,6 +4,7 @@ const adminAuth = (req, res, next) => {
 
     // Extract token from headers
     const token = req.headers.authorization; // Expecting raw token, not "Bearer token"
+    console.log("Token",token)
 
     if (!token) {
         return res.status(200).json({ flag: 0, message: "Access token is required!" });
