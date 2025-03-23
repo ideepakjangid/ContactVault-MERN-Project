@@ -10,6 +10,7 @@ app.use(cors({origin:"*"}))
 app.use(express.json());
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "dist")));
+const PORT = process.env.PORT || 4000
 
 app.use('/api/contact',ContactRoute)
 app.use('/api/user',UserRouter)
@@ -20,7 +21,7 @@ app.get("*", (req, res) => {
 mongoose.connect(process.env.MONGO_URL,{dbName:"contact_management"}).then(
     ()=>{
         console.log("DB connected...")
-        app.listen(process.env.PORT,()=>{
+        app.listen(PORT,()=>{
             console.log("Server started and running on 5000")
         })
     }
